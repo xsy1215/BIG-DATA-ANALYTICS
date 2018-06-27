@@ -34,7 +34,7 @@ import pandas as pd
 ```
 
 資料來源為TEJ，期間為:2017/6/19~2018/6/15
-將資料切為測試與訓練資料，測試資料為2017/6/19~2018/6/15;訓練資料為2018年6/15倒回去2017年6/19。
+將資料切為測試與訓練資料，測試資料為2017/6/19到2018/6/15。訓練資料為2018年6/15倒回去2017年6/19。
 並修改訓練與測試資料欄位名稱為: VIX、VIX日期、VIX開盤價、VIX最高價、VIX最低價、VIX收盤價、台指期名稱、台指期日期、台指期報酬、台指期收盤、台指期成交量。
 
 ```python
@@ -49,6 +49,8 @@ test.columns=['vix','vix_date','vix_open','vix_high','vix_low','vix_close','futu
 ```
 
 我們願使用KD、MACD、RSI技術指標的值當作分類依據，因此需載numpy、talib，技術指標於talib運算後與之前欄位項目一同匯入t1，並移除空值與遺漏值。
+
+```python
 
 import talib
 import numpy as np
@@ -77,6 +79,8 @@ t1.columns=['vix','vix_date','vix_open','vix_high','vix_low','vix_close','future
 
 t1 = t1.query('vix_date > 20170803')
 df=t1
+
+```
 
 先載入sklearn的模型選擇、預先處理、指標與ensemble模型後我們開始進行分類。我們將(交易量增加的)、(報酬率>0)、(波動率指數增加的)設為1; 因為想要用類別(不是連續)的變數，因此需要載入虛擬變數(dummy variables)，最後測試並建立volume的數據。
 
