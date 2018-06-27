@@ -84,6 +84,9 @@ df=t1
 
 先載入sklearn的模型選擇、預先處理、指標與ensemble模型後我們開始進行分類。我們將(交易量增加的)、(報酬率>0)、(波動率指數增加的)設為1; 因為想要用類別(不是連續)的變數，因此需要載入虛擬變數(dummy variables)，最後測試並建立volume的數據。
 
+
+```python
+
 from sklearn import model_selection, ensemble, preprocessing, metrics
 
 df['pre_vol']=(df.fu_vol - df.fu_vol.shift(1)) > 0
@@ -103,7 +106,11 @@ pre_vol_X = df[selected_features]
 pre_vol_y = df['pre_vol']
 train_X, test_X, train_y, test_y = model_selection.train_test_split(pre_vol_X, pre_vol_y, test_size = 0.3)
 
+```
+
 接下來我們載入 random forest 模型並進行預測，我們發顯此模型預測的準確率為0.654，auc值(Area Under Curve)為0.656(auc越接近1越好，可顯示此分類算法的優劣程度)。
+
+```python
 
 forest = ensemble.RandomForestClassifier(n_estimators = 300)
 forest_fit = forest.fit(train_X, train_y)
@@ -116,8 +123,12 @@ auc = metrics.auc(fpr, tpr)
 print('準確率: {}'.format(auc))
 print('AUC值: {}'.format(accuracy))
 
+```
+
 用上述分類來預測台指期的交易量增加or減少，及預測成功機率。
 最後再進行台指期報酬率的預測(賺錢or賠錢)，並顯示準確度與AUC值。
+
+```python
 
 today_X = df[selected_features]
 today_y_predicted = forest.predict(today_X)
@@ -145,4 +156,4 @@ proba = forest.predict_proba(today_X2)
 print('預期隔日報酬: ' + format(np.where(today_y_predicted==True,'正','負')[0]))
 print( '明日賺的機率: {}'.format(proba[0][1]))
 
-
+```
