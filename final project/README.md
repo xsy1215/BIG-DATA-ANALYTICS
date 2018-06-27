@@ -37,11 +37,16 @@ import pandas as pd
 將資料切為測試與訓練資料，測試資料為2017/6/19~2018/6/15;訓練資料為2018年6/15倒回去2017年6/19。
 並修改訓練與測試資料欄位名稱為: VIX、VIX日期、VIX開盤價、VIX最高價、VIX最低價、VIX收盤價、台指期名稱、台指期日期、台指期報酬、台指期收盤、台指期成交量。
 
+```python
+
 test = pd.read_csv("test.csv", error_bad_lines=False)
 train = pd.read_csv("train.csv", error_bad_lines=False)
 
 train.columns=['vix','vix_date','vix_open','vix_high','vix_low','vix_close','future','fu_date','fu_ret','fu_colse','fu_vol']
 test.columns=['vix','vix_date','vix_open','vix_high','vix_low','vix_close','future','fu_date','fu_ret','fu_colse','fu_vol']
+
+
+```
 
 我們願使用KD、MACD、RSI技術指標的值當作分類依據，因此需載numpy、talib，技術指標於talib運算後與之前欄位項目一同匯入t1，並移除空值與遺漏值。
 
