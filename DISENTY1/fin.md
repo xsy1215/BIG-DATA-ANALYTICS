@@ -2021,6 +2021,7 @@ test_y_predicted
 
 ## load in model
 
+```python
 from keras.layers import Dense, Dropout, Flatten,Conv2D, MaxPooling2D
 from keras.utils import to_categorical
 from keras.models import Sequential
@@ -2033,6 +2034,7 @@ from PIL import Image
 import pandas as pd
 import numpy as np
 np.random.seed(10)
+```
 
 ## plot function
 
