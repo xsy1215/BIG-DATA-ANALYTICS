@@ -1803,6 +1803,7 @@ print('AUC值: {}'.format(accuracy))
     準確率: 0.6533333333333334
     AUC值: 0.65625
     
+# 量預測vix ，成功率65%。
 
 ## 預測期貨交易量
 
@@ -1859,7 +1860,7 @@ print('AUC值: {}'.format(accuracy))
     準確率: 0.4757085020242915
     AUC值: 0.56
     
-
+# Vix預測報酬，成功率56%。
 
 ```python
 today_X2 = df[selected_features_ret]
@@ -2024,9 +2025,7 @@ test_y_predicted
 
     Predict Accuracy: 1.0
 
-## VIX降低，隔日交易量減少。
-## 用VIX預測報酬，準確度56%。
-## 用報酬、量，預測VIX準確度76%。
+# 用vix技術指標來預測vix，成功率76%。
 
 
 # PART2:  用CNN預測K線圖
