@@ -7,13 +7,19 @@
 #### 所謂的運，意旨所謂的環境造成的變化，因此攸關於市場波動與眾人心理。
 #### 所謂的風水，意旨事與物之相對位置，我們納入cnn來預測k線圖。
 
-
-# 利用台股VIX指數估計台指期的報酬
+# PART1
+## 利用台股VIX指數估計台指期的報酬
 # 並探討VIX高低和台指期交易量
 
-# 再使用cnn預測k線圖
+# PART2
 
-# 載入模組
+## 使用cnn預測k線圖
+
+# ---------------------------------------------
+
+# PART1
+
+## 載入模組
 ## 套件需求: pandas，sklearn中的RandomForest分類、回歸、交叉驗證。
 
 
@@ -2011,9 +2017,9 @@ test_y_predicted
 
     Predict Accuracy: 1.0
 
-# 用CNN預測K線圖
+# PART2:  用CNN預測K線圖
 
-# load in model
+## load in model
 
 from keras.layers import Dense, Dropout, Flatten,Conv2D, MaxPooling2D
 from keras.utils import to_categorical
@@ -2028,7 +2034,7 @@ import pandas as pd
 import numpy as np
 np.random.seed(10)
 
-# plot function
+## plot function
 
 
 ```python
@@ -2043,7 +2049,7 @@ def show_train_history(train_history, train, validation):
     plt.show()
 ```
 
-# load data
+## load data
 
 
 ```python
@@ -2176,7 +2182,7 @@ train_X.shape
 
 
 
-# x_train normalize & 4D matrix
+## x_train normalize & 4D matrix
 
 
 ```python
@@ -2832,7 +2838,7 @@ y_trainOneHot = np_utils.to_categorical(train_y)
 y_testOneHot = np_utils.to_categorical(test_y)
 ```
 
-# establish CNN model
+## establish CNN model
 
 
 ```python
@@ -2869,7 +2875,7 @@ model.compile(loss='categorical_crossentropy',
              optimizer = 'adam', metrics=['accuracy'])
 ```
 
-# input train data in CNN
+## input train data in CNN
 
 
 ```python
@@ -2891,7 +2897,7 @@ train_history = model.fit(x= x_train4D,y= y_trainOneHot,
      - 208s - loss: 2.6863 - acc: 0.8333 - val_loss: 1.1921e-07 - val_acc: 1.0000
     
 
-# show train history
+## show train history
 
 
 ```python
@@ -2911,7 +2917,7 @@ show_train_history(train_history,'loss','val_loss')
 ![png](output_28_0.png)
 
 
-# predict score
+## predict score
 
 
 ```python
