@@ -2029,6 +2029,7 @@ test_y_predicted
 ## 說明:
 ## 使用 2017/06/20 到 2018/06/18 間 ，2330之 K線圖。
 ## 來預測 Next day 收盤價 漲/跌。
+### 每5個交易日，畫出一張K線圖，用來預測第六天之漲跌。
 
 
 
@@ -2881,7 +2882,7 @@ model.add(Dropout(0.5))
 model.add(Flatten())
 model.add(Dense(128,activation='relu'))
 model.add(Dropout(0.5))
-model.add(Dense(3,activation='softmax'))
+model.add(Dense(,activation='softmax'))
 ```
 
 
