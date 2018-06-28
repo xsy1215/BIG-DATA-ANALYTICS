@@ -1917,6 +1917,7 @@ print('AUC值: {}'.format(accuracy))
     準確率: 0.7598039215686274
     AUC值: 0.765625
     
+# 用vix技術指標來預測vix，成功率76%。
 
 
 ```python
@@ -2025,7 +2026,6 @@ test_y_predicted
 
     Predict Accuracy: 1.0
 
-# 用vix技術指標來預測vix，成功率76%。
 
 
 # PART2:  用CNN預測K線圖
