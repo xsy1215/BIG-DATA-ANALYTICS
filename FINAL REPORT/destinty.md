@@ -1857,7 +1857,7 @@ print('AUC值: {}'.format(accuracy))
 ```
 
     準確率: 0.4757085020242915
-    AUC值: 0.5
+    AUC值: 0.56
     
 
 
@@ -2023,6 +2023,11 @@ test_y_predicted
 ```
 
     Predict Accuracy: 1.0
+
+## VIX降低，隔日交易量減少。
+## 用VIX預測報酬，準確度56%。
+## 用報酬、量，預測VIX準確度76%。
+
 
 # PART2:  用CNN預測K線圖
 
